@@ -1,0 +1,8 @@
+MyBlogBundle:
+    resource: "@MyBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal
