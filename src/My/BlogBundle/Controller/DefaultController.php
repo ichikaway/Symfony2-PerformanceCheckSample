@@ -17,7 +17,7 @@ class DefaultController extends Controller
 	public function indexAction()
 	{
 		$em = $this->get('doctrine')->getEntityManager();
-		$posts = $em->getRepository('MyBlogBundle:Post')->findAll()->limit(20);
+		$posts = $em->getRepository('MyBlogBundle:Post')->findAll();
 		return $this->render('MyBlogBundle:Default:index.html.twig', array('posts' => $posts));
 	}
 
