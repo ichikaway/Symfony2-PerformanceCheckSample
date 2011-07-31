@@ -1,8 +1,12 @@
-blog_index:
-    pattern:  /
-    defaults: { _controller: MyBlogBundle:Default:index }
+blog_view_cache:
+    pattern:  /cache/{id}
+    defaults: { _controller: MyBlogBundle:Default:cacheView }
 
 blog_view:
     pattern:  /{id}
     defaults: { _controller: MyBlogBundle:Default:view }
+
+blog_index:
+    pattern:  /
+    defaults: { _controller: MyBlogBundle:Default:index }
 
