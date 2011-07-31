@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-/*    
+/*
     public function indexAction($name)
     {
         return $this->render('MyBlogBundle:Default:index.html.twig', array('name' => $name));
@@ -26,6 +26,18 @@ class DefaultController extends Controller
 		$em = $this->get('doctrine')->getEntityManager();
 		$post = $em->find('MyBlogBundle:Post', $id);
 		return $this->render('MyBlogBundle:Default:view.html.twig', array('post' => $post));
+	}
+
+	public function cacheViewAction($id)
+	{
+		$em = $this->get('doctrine')->getEntityManager();
+		$post = $em->find('MyBlogBundle:Post', $id);
+		$response = $this->render('MyBlogBundle:Default:view.html.twig', array('post' => $post));
+
+        $response->setPrivate();
+        $response->setSharedMaxAge(30);
+
+        return $response;
 	}
 
 }
